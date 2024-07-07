@@ -280,7 +280,7 @@ class _ProfileState extends State<Profile> {
                 ),
                 ElevatedButton(
                     onPressed: () async {
-                      setState(() {});
+                      saveData();
                     },
                     child: Text('sim'))
               ],

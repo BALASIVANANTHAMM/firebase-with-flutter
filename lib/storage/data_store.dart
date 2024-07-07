@@ -8,13 +8,13 @@ final FirebaseFirestore fireStore = FirebaseFirestore.instance;
 User? firebaseUser = FirebaseAuth.instance.currentUser;
 
 class StoreData {
-  Future<TaskSnapshot> uploadImToSt(Uint8List file) async {
-    Reference ref = storage.ref().child('profilePicture');
-    UploadTask uploadTask = ref.putData(file);
-    TaskSnapshot snapshot = await uploadTask;
-    String downUrl = await snapshot.ref.getDownloadURL();
-    return snapshot;
-  }
+  // Future<TaskSnapshot> uploadImToSt(Uint8List file) async {
+  //   Reference ref = storage.ref().child('profilePicture');
+  //   UploadTask uploadTask = ref.putData(file);
+  //   TaskSnapshot snapshot = await uploadTask;
+  //   String downUrl = await snapshot.ref.getDownloadURL();
+  //   return snapshot;
+  // }
 
   Future<String> save({
     required String name,
@@ -54,26 +54,4 @@ class StoreData {
     return res;
   }
 
-  // Future<String> edit({
-  //   required String name,
-  //   required String mobile,
-  // }) async {
-  //   String res = "Error Occurred";
-  //   try {
-  //     DocumentSnapshot d = await fireStore
-  //         .collection('userProfile')
-  //         .doc(firebaseUser!.displayName)
-  //         .collection('userInfo')
-  //         .doc(firebaseUser!.email)
-  //         .get();
-  //     if (d.exists) {
-  //       final d1 = d.data();
-  //       print(d1);
-  //     }
-  //     res = 'success';
-  //   } catch (e) {
-  //     res = e.toString();
-  //   }
-  //   return res;
-  // }
 }
